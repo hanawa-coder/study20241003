@@ -44,7 +44,7 @@ class HanawaStack(Stack):
 
         # Add Ingress Rule
         security_group.add_ingress_rule(
-            peer=ec2.Peer.ipv4("118.238.231.215/32"),
+            peer=ec2.Peer.ipv4("0.0.0.0/0"),
             connection=ec2.Port.tcp(22),
             description="allow ssh access"
         )
