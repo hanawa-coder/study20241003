@@ -49,10 +49,6 @@ class HanawaStack(Stack):
             description="allow ssh access"
         )
 
-#        key = ec2.KeyPair(self,
-#            key_pair_name="hanawa-keypair",
-#            type=ec2.KeyPairType.RSA
-#        )
         key_pair = ec2.KeyPair(self, "hanawa-KeyPair",
             type=ec2.KeyPairType.RSA,
             format=ec2.KeyPairFormat.PEM
