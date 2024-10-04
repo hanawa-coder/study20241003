@@ -49,6 +49,14 @@ class HanawaStack(Stack):
             description="allow ssh access"
         )
 
+#        key = ec2.KeyPair(self,
+#            key_pair_name="hanawa-keypair",
+#            type=ec2.KeyPairType.RSA
+#        )
+        key_pair = ec2.KeyPair(self, "hanawa-KeyPair",
+            type=ec2.KeyPairType.RSA,
+            format=ec2.KeyPairFormat.PEM
+        )
         # Create EC2
         ec2_instance = ec2.Instance(
             self,
@@ -63,5 +71,6 @@ class HanawaStack(Stack):
                 subnet_type=ec2.SubnetType.PUBLIC
             ),
             instance_name="hanawa-ec2-instance",
-            security_group=security_group
+            security_group=security_group,
+            key_pair=key_pair
         )
